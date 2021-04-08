@@ -1,0 +1,491 @@
+<div class="row">
+    <div class="col-12">
+      <h5>Sales</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <form>
+          <div class="form-row align-items-center">
+            <div class="col-auto pr-0">
+              <label>Company Name</label>
+              <input type="text" class="form-control zero-border mb-0" [value]="cname" id="inlineFormInput" placeholder="Company Name">
+            </div>
+            <div class="col-auto pl-0 label-with-icon mr-3">
+              <button type="submit" class="btn btn-primary zero-border mb-0" routerLink="test"><i class="fas fa-search"></i></button>
+            </div>
+  
+            <div class="col-auto pr-0">
+              <label>Account No.</label>
+              <input type="text" class="form-control zero-border mb-0" [value]="acc" id="inlineFormInputs" placeholder="Account No.">
+            </div>
+
+            <div class="col-auto pr-0">
+                <label>Sales Exec.</label>
+                <input type="text" class="form-control zero-border mb-0" [value]="sales" id="salesExec" placeholder="Sales Exec.">
+            </div>
+
+            <div class="col-auto pr-0">
+                <label>Cust Ref.</label>
+                <input type="text" class="form-control zero-border mb-0" [value]="cust" id="custRef" placeholder="Cust Ref.">
+            </div>
+            
+          </div>
+      </form>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-12">
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-route blueClr mr-2"></i>Pickup</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-calculator orangeClr mr-2"></i>Cost Calculator</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-print purplClr mr-2"></i>Order Stationary</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-filter pinkClr mr-2"></i>Filter</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-broom redClr mr-2"></i>Clear</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-plus greenClr mr-2"></i>F2 - New</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-save lorngClr mr-2"></i>F9 - Save</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-times redClr mr-2"></i>Esc - Close</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-file-import purplClr mr-2"></i>Import Customer</button>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-12 allDetails">
+      <mat-tab-group>
+        <mat-tab label="General">
+          <div class="px-4">
+            <div class="row">
+              <div class="col-xl-6 py-4">
+  
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Building Name</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="BN" aria-describedby="text">
+                  </div>
+                </div>
+  
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Floor #</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">Office #</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">Address</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" rows="2"></textarea>
+                    </div>
+                </div>
+  
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Location</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">Nearest Landmark</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+  
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Zipcode 1</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+  
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">City</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <select class="form-control">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">Zipcode 2</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+    
+                  <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">City</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                </div>
+  
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Customer Group</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                  </div>
+                </div>
+  
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Country</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                  </div>
+                </div>
+  
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">City</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                  </div>
+                </div>
+  
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Phone No.</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+  
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Fax No.</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+  
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Email</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+  
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Tarrif Name</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">Industry</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <select class="form-control">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                      </select>
+                    </div>
+                  </div>
+                
+              </div>
+  
+              <div class="col-xl-6 py-4 sales-rightside left-bdr">
+                <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">Customer Classification</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">Client Status</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" name="customRadioInline" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline1">WIP</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2">Active</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline3" name="customRadioInline" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline3">Inactive</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">Account Status</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">Suspended</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck2">
+                            <label class="custom-control-label" for="customCheck2">Terminated</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">Reason</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <select class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">Page Ref#</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">Payment Terms</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="cash" name="payment" class="custom-control-input">
+                            <label class="custom-control-label" for="cash">Cash</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="account" name="payment" class="custom-control-input">
+                            <label class="custom-control-label" for="account">Account</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="prepaid" name="payment" class="custom-control-input">
+                            <label class="custom-control-label" for="prepaid">Prepaid</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="others" name="payment" class="custom-control-input">
+                            <label class="custom-control-label" for="others">Others</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">Service provider</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <select class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2 pl-0">
+                      <button type="submit" class="btn btn-default zero-border mb-0"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">Local</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="lperday" name="local" class="custom-control-input">
+                            <label class="custom-control-label" for="lperday">Per Day</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="lperweek" name="local" class="custom-control-input">
+                            <label class="custom-control-label" for="lperweek">Per Week</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="lpermonth" name="local" class="custom-control-input">
+                            <label class="custom-control-label" for="lpermonth">Per Month</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">International</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="iperday" name="international" class="custom-control-input">
+                            <label class="custom-control-label" for="iperday">Per Day</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="iperweek" name="international" class="custom-control-input">
+                            <label class="custom-control-label" for="iperweek">Per Week</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="ipermonth" name="international" class="custom-control-input">
+                            <label class="custom-control-label" for="ipermonth">Per Month</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col-sm-4 pr-0">
+                      <label class="">Other Services</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="af">
+                            <label class="custom-control-label" for="af">A/F</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="road">
+                            <label class="custom-control-label" for="road">Road</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="sea">
+                            <label class="custom-control-label" for="sea">Sea</label>
+                        </div>
+                    </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Contacts"> 
+          <div class="p-4">
+            Content 2
+          </div>
+        </mat-tab>
+        <mat-tab label="Working Hours"> 
+            <div class="p-4">
+              Content 2
+            </div>
+        </mat-tab>
+        <mat-tab label="Daily Sales Report"> 
+            <div class="p-4">
+              Content 2
+            </div>
+        </mat-tab>
+        <mat-tab label="Destination"> 
+            <div class="p-4">
+              Content 2
+            </div>
+        </mat-tab>
+        <mat-tab label="Auto Email Options"> 
+            <div class="p-4">
+              Content 2
+            </div>
+        </mat-tab>
+        <mat-tab label="Special Rates"> 
+            <div class="p-4">
+              Content 2
+            </div>
+        </mat-tab>
+        <mat-tab label="Service Evaluation"> 
+            <div class="p-4">
+              Content 2
+            </div>
+        </mat-tab>
+        <mat-tab label="Usage"> 
+            <div class="p-4">
+              Content 2
+            </div>
+        </mat-tab>
+        <mat-tab label="Stock"> 
+            <div class="p-4">
+              Content 2
+            </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
