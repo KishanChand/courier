@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterContentChecked } from '@angular/core';
+import { DataSharingService } from '../data-sharing.service';
 
 @Component({
   selector: 'app-homepage',
@@ -7,14 +8,24 @@ import { Component, OnInit, AfterContentChecked } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() {
+  constructor(private ds:DataSharingService) {
     console.log('console testing ni constrture');
   }
-  awb = '';
+  // awb = '';
   ref = '';
+  searchResult:boolean = false;
 
   ngOnInit(): void {
     console.log('oninit triggered');
+  }
+
+  getData(val) {
+    if(val == '020600138508') {
+      console.log(this.ds.trackDetails(), 'ewe');
+      this.searchResult = true;
+    } else {
+      this.searchResult = false;
+    }
   }
 
 }

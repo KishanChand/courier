@@ -8,14 +8,14 @@
     <form>
         <div class="form-row align-items-center">
           <div class="col-auto pr-0">
-            <input type="text" class="form-control zero-border mb-0" [value]="awb" id="inlineFormInput" placeholder="AWB No.">
+            <input type="text" class="form-control zero-border mb-0" #awb value="" placeholder="AWB No.">
           </div>
           <div class="col-auto pl-0 mr-3">
-            <button type="submit" class="btn btn-primary zero-border mb-0" routerLink="test"><i class="fas fa-search"></i></button>
+            <button type="button" class="btn btn-primary zero-border mb-0" (click)="getData(awb.value)"><i class="fas fa-search"></i></button>
           </div>
 
           <div class="col-auto pr-0">
-            <input type="text" class="form-control zero-border mb-0" [value]="awb" id="inlineFormInputs" placeholder="Ref#">
+            <input type="text" class="form-control zero-border mb-0" [value]="ref" id="inlineFormInputs" placeholder="Ref#">
           </div>
           <div class="col-auto pl-0">
             <button type="submit" class="btn btn-primary zero-border mb-0" routerLink="test"><i class="fas fa-binoculars"></i></button>
@@ -31,461 +31,452 @@
   </div>
 </div>
 <hr />
-<div class="row">
-  <div class="col-12">
-    <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-route blueClr mr-2"></i>View Track</button>
-    <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-comment orangeClr mr-2"></i>F5 - Comment</button>
-    <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-print purplClr mr-2"></i>Print AWB</button>
-    <button mat-button class="simpleBtn mr-1 mb-1"><i class="far fa-file-powerpoint pinkClr mr-2"></i>F7 - Print</button>
-    <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-receipt blueClr mr-2"></i>Duty Invoice</button>
-    <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-plus greenClr mr-2"></i>F2 - New</button>
-    <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-trash-alt redClr mr-2"></i>Delete</button>
-    <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-save lorngClr mr-2"></i>Save</button>
-    <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-times redClr mr-2"></i>Close</button>
+<div class="searchResult" *ngIf="searchResult">
+  <div class="row">
+    <div class="col-12">
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-route blueClr mr-2"></i>View Track</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-comment orangeClr mr-2"></i>F5 - Comment</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-print purplClr mr-2"></i>Print AWB</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="far fa-file-powerpoint pinkClr mr-2"></i>F7 - Print</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-receipt blueClr mr-2"></i>Duty Invoice</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-plus greenClr mr-2"></i>F2 - New</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-trash-alt redClr mr-2"></i>Delete</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-save lorngClr mr-2"></i>Save</button>
+      <button mat-button class="simpleBtn mr-1 mb-1"><i class="fas fa-times redClr mr-2"></i>Close</button>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-12">
-    <label>Tracking</label>
+  <div class="row">
+    <div class="col-12">
+      <label>Tracking</label>
+    </div>
+    <div class="col-md-6">
+      <div class="tracking-details">
+        <p style="color:red;" class="mb-1">Checked in at local station: DXB 16/02/2021</p>
+        <p style="color:red;" class="mb-1">Checked in at local station: AMM 16/02/2021</p>
+        <p style="color:red;" class="mb-1">Checked out from local station: DXB 16/02/2021</p>
+        <p style="color:red;" class="mb-1">Checked out from local station: AMM 16/02/2021</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="in-out-details">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th>In</th>
+              <th>Out</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>data</td>
+              <td>data</td>
+            </tr>
+            <tr>
+              <td>data</td>
+              <td>data</td>
+            </tr>
+            <tr>
+              <td>data</td>
+              <td>data</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-  <div class="col-md-6">
-    <div class="tracking-details"></div>
+  <div class="row">
+    <div class="col-md-3 mb-3">
+      <label>Date</label>
+      <input type="date" class="form-control" id="date" aria-describedby="date">
+    </div>
+    <div class="col-md-3 mb-3">
+      <label>Time</label>
+      <input type="time" class="form-control" id="time" aria-describedby="time">
+    </div>
+    <div class="col-md-3 mb-3">
+      <label>Signature</label>
+      <input type="text" class="form-control" id="signature" aria-describedby="signature">
+    </div>
+    <div class="col-md-3 mb-3">
+      <label>Driver</label>
+      <select class="form-control" id="driver" aria-describedby="driver">
+        <option value="mike">Mike</option>
+        <option value="cathy">Cathy</option>
+      </select>
+    </div>
   </div>
-  <div class="col-md-6">
-    <div class="in-out-details">
-      <table class="table table-borderless">
-        <thead>
-          <tr>
-            <th>In</th>
-            <th>Out</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>data</td>
-            <td>data</td>
-          </tr>
-          <tr>
-            <td>data</td>
-            <td>data</td>
-          </tr>
-          <tr>
-            <td>data</td>
-            <td>data</td>
-          </tr>
-        </tbody>
-      </table>
+
+  <div class="row">
+    <div class="col-12 allDetails">
+      <mat-tab-group>
+        <mat-tab label="Address Details">
+          <div class="px-4">
+            <div class="row">
+              <div class="col-xl-4 py-4">
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Date</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="date" class="form-control" id="date" aria-describedby="date">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Account No</label>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col-sm-2 pl-0">
+                    <button type="submit" class="btn btn-default zero-border mb-0"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Consignor Ref No</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Consignor</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Consignor Address</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <textarea class="form-control" rows="2"></textarea>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Consignor Country</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <select class="form-control">
+                      <option value="india">India</option>
+                      <option value="sa">South Africa</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Consignor City</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Consignor Phone</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Consignor Fax</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Consignor Zipcode</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Consignor Email</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Consignor Ref #</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Consignor Name</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                
+              </div>
+
+              <div class="col-xl-4 py-4 light-bg">
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Dest Code</label>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col-sm-2 pl-0">
+                    <button type="submit" class="btn btn-default zero-border mb-0"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Attention</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Consignee</label>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col-sm-2 pl-0">
+                    <button type="submit" class="btn btn-default zero-border mb-0"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Consignee Address</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <textarea class="form-control" rows="4"></textarea>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Country</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <select class="form-control">
+                      <option value="india">India</option>
+                      <option value="sa">South Africa</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Town</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Phone</label>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col-sm-2 pl-0">
+                    <button type="submit" class="btn btn-default zero-border mb-0"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Fax</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Zipcode</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Email</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Consignee Mobile</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                  </div>
+                  <div class="col-sm-8">
+                    <a href="javascript:void(0);">NCI</a>
+                  </div>
+                </div>
+                
+              </div>
+
+              <div class="col-xl-4 py-4">
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Service</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <select class="form-control">
+                      <option value="speed">Speed</option>
+                      <option value="normal">normal</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Shipment Type</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <select class="form-control">
+                      <option value="flight">Flight</option>
+                      <option value="bus">Bus</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Contents</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Value</label>
+                  </div>
+                  <div class="col-sm-4">
+                    <select class="form-control">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Total Pieces</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Total Weight(KGS) COD</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Origin Station</label>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col-sm-2 pl-0">
+                    <button type="submit" class="btn btn-default zero-border mb-0"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-sm-4 pr-0">
+                    <label class="">Report Type</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <select class="form-control">
+                      <option value="skynet-new">iSkynet New</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 text-right">
+                    <button type="button" class="btn btn-primary btn-sm zero-border mt-2 mr-2" title="F4 - Edit"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-primary btn-sm zero-border mt-2 mr-2" title="F10 - Save Sky Bill"><i class="fas fa-save"></i></button>
+                    <button type="button" class="btn btn-primary btn-sm zero-border mt-2" title="Print Proforma"><i class="fas fa-print"></i></button>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Item Details"> 
+          <div class="p-4">
+            Content 2
+          </div>
+        </mat-tab>
+      </mat-tab-group>
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-3 mb-3">
-    <label>Date</label>
-    <input type="date" class="form-control" id="date" aria-describedby="date">
-  </div>
-  <div class="col-md-3 mb-3">
-    <label>Time</label>
-    <input type="time" class="form-control" id="time" aria-describedby="time">
-  </div>
-  <div class="col-md-3 mb-3">
-    <label>Signature</label>
-    <input type="text" class="form-control" id="signature" aria-describedby="signature">
-  </div>
-  <div class="col-md-3 mb-3">
-    <label>Driver</label>
-    <select class="form-control" id="driver" aria-describedby="driver">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-12 allDetails">
-    <mat-tab-group>
-      <mat-tab label="Address Details">
-        <div class="px-4">
-          <div class="row">
-            <div class="col-xl-4 py-4">
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Date</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="date" class="form-control" id="date" aria-describedby="date">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Account No</label>
-                </div>
-                <div class="col-sm-6">
-                  <input type="text" class="form-control">
-                </div>
-                <div class="col-sm-2 pl-0">
-                  <button type="submit" class="btn btn-default zero-border mb-0"><i class="fas fa-search"></i></button>
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Consignor Ref No</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Consignor</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Consignor Address</label>
-                </div>
-                <div class="col-sm-8">
-                  <textarea class="form-control" rows="2"></textarea>
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Consignor Country</label>
-                </div>
-                <div class="col-sm-8">
-                  <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Consignor City</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Consignor Phone</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Consignor Fax</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Consignor Zipcode</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Consignor Email</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Consignor Ref #</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Consignor Name</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-              
-            </div>
-
-            <div class="col-xl-4 py-4 light-bg">
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Dest Code</label>
-                </div>
-                <div class="col-sm-6">
-                  <input type="text" class="form-control">
-                </div>
-                <div class="col-sm-2 pl-0">
-                  <button type="submit" class="btn btn-default zero-border mb-0"><i class="fas fa-search"></i></button>
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Attention</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Consignee</label>
-                </div>
-                <div class="col-sm-6">
-                  <input type="text" class="form-control">
-                </div>
-                <div class="col-sm-2 pl-0">
-                  <button type="submit" class="btn btn-default zero-border mb-0"><i class="fas fa-search"></i></button>
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Consignee Address</label>
-                </div>
-                <div class="col-sm-8">
-                  <textarea class="form-control" rows="4"></textarea>
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Country</label>
-                </div>
-                <div class="col-sm-8">
-                  <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Town</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Phone</label>
-                </div>
-                <div class="col-sm-6">
-                  <input type="text" class="form-control">
-                </div>
-                <div class="col-sm-2 pl-0">
-                  <button type="submit" class="btn btn-default zero-border mb-0"><i class="fas fa-search"></i></button>
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Fax</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Zipcode</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Email</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Consignee Mobile</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                </div>
-                <div class="col-sm-8">
-                  <a href="javascript:void(0);">NCI</a>
-                </div>
-              </div>
-              
-            </div>
-
-            <div class="col-xl-4 py-4">
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Service</label>
-                </div>
-                <div class="col-sm-8">
-                  <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Shipment Type</label>
-                </div>
-                <div class="col-sm-8">
-                  <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Contents</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Value</label>
-                </div>
-                <div class="col-sm-4">
-                  <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Total Pieces</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Total Weight(KGS) COD</label>
-                </div>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Origin Station</label>
-                </div>
-                <div class="col-sm-6">
-                  <input type="text" class="form-control">
-                </div>
-                <div class="col-sm-2 pl-0">
-                  <button type="submit" class="btn btn-default zero-border mb-0"><i class="fas fa-search"></i></button>
-                </div>
-              </div>
-
-              <div class="row mb-1">
-                <div class="col-sm-4 pr-0">
-                  <label class="">Report Type</label>
-                </div>
-                <div class="col-sm-8">
-                  <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-12 text-right">
-                  <button type="button" class="btn btn-primary btn-sm zero-border mt-2 mr-2" title="F4 - Edit"><i class="fas fa-edit"></i></button>
-                  <button type="button" class="btn btn-primary btn-sm zero-border mt-2 mr-2" title="F10 - Save Sky Bill"><i class="fas fa-save"></i></button>
-                  <button type="button" class="btn btn-primary btn-sm zero-border mt-2" title="Print Proforma"><i class="fas fa-print"></i></button>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </mat-tab>
-      <mat-tab label="Item Details"> 
-        <div class="p-4">
-          Content 2
-        </div>
-      </mat-tab>
-    </mat-tab-group>
-  </div>
+<div class="noData" *ngIf="searchResult == false">
+<p class="text-center">No data available</p>
 </div>
